@@ -9,6 +9,7 @@ upstream ara_api {
 server {
     listen 80;
     keepalive_timeout 5;
+    large_client_header_buffers 4 12k;
     server_name {{ ara_api_fqdn }};
     {% if ara_api_external_auth -%}
     auth_basic "Privileged access";
